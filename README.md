@@ -23,7 +23,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Sync my docs to notion
-        uses: vdubois/github-markdown-to-notion-db@v0.4.0
+        uses: vdubois/github-markdown-to-notion-db@main
         env:
           NOTION_API_TOKEN: ${{ secrets.NOTION_API_TOKEN }}
           NOTION_DB_ID: ${{ secrets.NOTION_DB_ID }}
