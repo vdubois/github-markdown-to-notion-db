@@ -27,6 +27,8 @@ export const createPage = async (
   const res = notion.pages.create({
     parent: { database_id: databaseId },
     properties: props,
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     children: blocks,
   });
 
@@ -83,6 +85,8 @@ export const updatePage = async (
 
   await notion.blocks.children.append({
     block_id: pageId,
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     children: blocks,
   });
 };
