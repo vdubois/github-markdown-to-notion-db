@@ -54,7 +54,7 @@ async function sync() {
     const page = await retrievePage(databaseId, fileName, dirName);
     console.log(page);
 
-    const fileUrl = `${repoUrl}/blob/main/${filePath.replaceAll(new RegExp(/\/github\/workspace/g), "")}`;
+    const fileUrl = `${repoUrl}/blob/main/${filePath.replaceAll(new RegExp(/\/github\/workspace\//g), "")}`;
 
     // Create page when the page is not exists
     if (page.results.length === 0) {
