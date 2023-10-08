@@ -43,7 +43,7 @@ async function sync() {
     if (process.env.GITHUB_ACTIONS && ws !== undefined) {
       dirName = dirName.replace(new RegExp(ws + "/"), "");
     }
-    const fileName = path.basename(filePath).replaceAll(new RegExp(/\/github\/workspace/g), "");
+    const fileName = path.basename(filePath);
     const extName = path.extname(filePath);
 
     // Sync support ext only .md
@@ -54,7 +54,7 @@ async function sync() {
     const page = await retrievePage(databaseId, fileName, dirName);
     console.log(page);
 
-    const fileUrl = `${repoUrl}/blob/main/${filePath}`;
+    const fileUrl = `${repoUrl}/blob/main/${filePath.replaceAll(new RegExp(/\/github\/workspace/g), "")}`;
 
     // Create page when the page is not exists
     if (page.results.length === 0) {
