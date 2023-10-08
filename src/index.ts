@@ -41,7 +41,7 @@ async function sync() {
   for (const filePath of mdFileList) {
     let dirName = path.dirname(filePath);
     if (process.env.GITHUB_ACTIONS && ws !== undefined) {
-      dirName = dirName.replace(new RegExp("/github/workspace"), "");
+      dirName = dirName.replace(new RegExp("\\/github\\/workspace"), "");
     }
     const fileName = path.basename(filePath);
     const extName = path.extname(filePath);
