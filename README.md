@@ -1,8 +1,4 @@
-<p align="center">
-   <img width="400" src="logo.png">
-</p>
-
-`Gallery Fake` is a GitHub Actions for sync markdown docs to Notion DB.
+`github-markdown-to-notion-db` is a GitHub Actions for syncing markdown docs to Notion DB.
 
 ### Usage
 
@@ -22,28 +18,14 @@ on:
 
 jobs:
   sync:
-    name: Sync
+    name: Sync docs
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Gallery Fake
-        uses: litencatt/gallery-fake@v0.4.0
+      - name: Sync my docs to notion
+        uses: vdubois/github-markdown-to-notion-db@v0.4.0
         env:
           NOTION_API_TOKEN: ${{ secrets.NOTION_API_TOKEN }}
           NOTION_DB_ID: ${{ secrets.NOTION_DB_ID }}
-          GITHUB_MD_PATH: "path/to/sync_dir"
+          GITHUB_MD_PATH: "docs"
 ```
-
-### Settings example
-
-Set like this, if you sync [./example](https://github.com/litencatt/gallery-fake/tree/main/example) dir in your repository.
-
-```yml
-GITHUB_MD_PATH: "example"
-```
-
-Sync like this, after actions executed.
-<img width="1252" alt="image" src="https://user-images.githubusercontent.com/17349045/226583181-64664397-e4c9-4d85-9c6e-4950ca7cce20.png">
-
-Open `example1.md` page
-<img width="787" alt="image" src="https://user-images.githubusercontent.com/17349045/226583486-56d58273-995f-457b-9c6d-f60687214107.png">

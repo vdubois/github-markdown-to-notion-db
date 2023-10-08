@@ -1,4 +1,4 @@
-name: "Gallery Fake"
+name: "github-markdown-to-notion-db"
 description: "Sync markdown files in repository as pages on a specific Notion DB"
 runs:
   using: "docker"

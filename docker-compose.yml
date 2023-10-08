@@ -3,7 +3,7 @@ services:
   app:
     image: node:latest
     environment:
-      TZ: Asia/Tokyo
+      TZ: Europe/Paris
       NOTION_API_TOKEN: $NOTION_TOKEN
       NOTION_DB_ID: $DATABASE_ID
       GITHUB_REPOSITORY: $GITHUB_REPOSITORY
