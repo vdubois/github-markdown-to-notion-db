@@ -41,9 +41,9 @@ async function sync() {
   for (const filePath of mdFileList) {
     let dirName = path.dirname(filePath);
     if (process.env.GITHUB_ACTIONS && ws !== undefined) {
-      dirName = dirName.replace(new RegExp("\\/github\\/workspace"), "");
+      dirName = dirName.replace(new RegExp(ws + "/"), "");
     }
-    const fileName = path.basename(filePath);
+    const fileName = path.basename(filePath).replaceAll(new RegExp("\\/github\\/workspace"), "");
     const extName = path.extname(filePath);
 
     // Sync support ext only .md
